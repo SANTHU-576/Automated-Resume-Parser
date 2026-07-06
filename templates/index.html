@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Automated Resume Parser</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📄 Automated Resume Parser</h1>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+
+        <input type="file" name="resume" accept=".pdf" required>
+
+        <br><br>
+
+        <button type="submit">Upload Resume</button>
+
+    </form>
+
+    {% if result %}
+
+    <div class="result">
+
+        <h2>✅ Resume Parsed Successfully</h2>
+
+        <hr>
+
+        <p><b>👤 Name:</b> {{ result.name }}</p>
+
+        <p><b>📧 Email:</b> {{ result.email }}</p>
+
+        <p><b>📱 Phone:</b> {{ result.phone }}</p>
+
+        <p><b>💻 Skills:</b> {{ result.skills }}</p>
+
+        <p><b>🎓 Education:</b> {{ result.education }}</p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
